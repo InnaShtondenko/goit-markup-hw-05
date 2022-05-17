@@ -8,7 +8,6 @@ body {
 .page-header {
     border-bottom: 1px solid #ECECEC;
     
-
 }
 
 .container {
@@ -67,12 +66,32 @@ body {
     line-height: 1.14;
     letter-spacing: 0.02em;
     list-style: none;
+ 
 }
+
+
+.text-accent::after {
+    content: "";
+   
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    background-color: #2196f3;
+    border-radius: 2px; 
+    opacity: 1;
+    transition: opaciti 250ms cubic-bezier(0.4, 0, 0.2, 1);;
+}
+
+
 .nav-link .text-accent {
     color: #2196f3;
+
 }
 .nav-itam {
     text-decoration: none;
+    position: relative;
 }
 .nav-itam:not(:last-child) {
     margin-right: 50px;
@@ -95,12 +114,17 @@ p, h1, h2, h3, h4, h5, h6, ul {
     padding-bottom: 32px;
     color: inherit;
     text-decoration: none;
+
+    transition: color 250ms
+     cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-header {
     display: flex;
     color: #757575;
     margin-left: auto;
     align-items: flex-end;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-icon,
@@ -179,10 +203,76 @@ p, h1, h2, h3, h4, h5, h6, ul {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     cursor: pointer;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-section .button-order:hover,
 .hero-section .button-order:focus {
     background-color: #188ce8;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    width: 528px;
+    height: 581px;
+    padding: 40px;
+
+    background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.backdrop .btn-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #0000001a;
+    border-radius: 50%;
+    background-color: inherit;
+    cursor: pointer;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop .btn-close:hover,
+.backdrop .btn-close:focus {
+    color: #2196f3;
+}
+
+.modal .btn-close > .btn-close-icone {
+    
+    fill: currentColor;
 }
 
 .feature-list {
@@ -248,15 +338,39 @@ p, h1, h2, h3, h4, h5, h6, ul {
 .box-cards,
 .team-cards {
     display: flex;
-   
 }
+
 .box:not(:last-child) {
     margin-right: 30px;
 }
+
+.box {
+    position: relative;
+    width: 370px;
+}
+
+
+.box-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    font-weight: 700;
+    line-height: 1.14;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background-color: rgba(47, 48, 58, 0.8);
+}
+
 .team-card:last-child {
     margin-right: 0px;
 }
-.img {
+.card-img {
     display: block;
     height: auto;
     max-width: 100%;
@@ -272,11 +386,15 @@ p, h1, h2, h3, h4, h5, h6, ul {
     border-radius: 0px 0px 4px;
     background-color: #FFFFFF;
     margin-right: 30px;
+
+    
  }
  
 .team-cards .cards-text {
     padding: 30px 15px;
     margin: 0;
+
+    
 }
 .cards-text {
     width: 270px;
@@ -297,9 +415,12 @@ p, h1, h2, h3, h4, h5, h6, ul {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-right: -10px;
+    
 }
 .social-list .itam {
     margin-right: 10px;
+    
+    
 }
 
 
@@ -311,6 +432,11 @@ p, h1, h2, h3, h4, h5, h6, ul {
     height: 44px;
     
     fill: #AFB1B8;
+    border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .social-icon {
@@ -323,14 +449,17 @@ p, h1, h2, h3, h4, h5, h6, ul {
 .footer .follow-us-container .social-link:hover,
 .footer .follow-us-container .social-link:focus {
     background-color: #2196F3;
-    border-radius: 50%;
     fill: #FFF;
+
+    
 }
 
 .list-clients {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
 }
 
 .list-clients .item:not(:last-child) {
@@ -349,6 +478,8 @@ p, h1, h2, h3, h4, h5, h6, ul {
     border-radius: 4px;
     margin-right: 30px;
     fill: #afb1b8;
+
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-clients .item {
@@ -364,6 +495,8 @@ p, h1, h2, h3, h4, h5, h6, ul {
     padding: 60px 0;
 
     background-color: #2F303A;
+
+    
 }
 .footer .logo {
     margin-bottom: 20px;
@@ -379,6 +512,8 @@ p, h1, h2, h3, h4, h5, h6, ul {
     text-decoration: none;
 
     color: rgba(255, 255, 255, 0.6);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clear-link-text-accent {
     text-decoration: none;
@@ -400,6 +535,8 @@ p, h1, h2, h3, h4, h5, h6, ul {
     list-style: none;
     line-height: 1.71;
     letter-spacing: 0.03em;
+
+    
 }
 
 .footer> .container {
@@ -493,6 +630,7 @@ p, h1, h2, h3, h4, h5, h6, ul {
     flex-wrap: wrap;
     margin-top: calc(30px * -1);
     margin-right: calc(30px * -1);
+    
 
 }
 
@@ -505,14 +643,46 @@ p, h1, h2, h3, h4, h5, h6, ul {
 
 }
 
+
+
+
 .card-link {
     display: block;
     text-decoration: none;
     font-style: normal;
     color: inherit;
+   
 }
 
+.portfolio-cards .img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
 
+.portfolio-cards .card-link-overlay {
+    
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 63px 24px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: #fff;
+    background-color: rgba(33, 150, 243, 0.9);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100%);
+   
+    
+}
+
+.portfolio-cards .card-link:hover .card-link-overlay,
+.portfolio-cards .card-link:focus .card-link-overlay {
+    transform: translateX(0%);
+    
+}
 
 .portfolio-cards .card {
     margin-right: 30px;
@@ -521,11 +691,15 @@ p, h1, h2, h3, h4, h5, h6, ul {
 }
 
  .card-link:hover,
- .card-link:focus {
+ .card-link:focus,
+.card-link-overflow:hover,
+.card-link-overflow:focus {
   
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
         0px 4px 4px rgba(0, 0, 0, 0.06),
         1px 4px 6px rgba(0, 0, 0, 0.16);
+
+    
 
 }
 .subtitle {
@@ -554,6 +728,7 @@ p, h1, h2, h3, h4, h5, h6, ul {
     color: #757575;
 
 }
+
 
 
 
